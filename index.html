@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="index.css" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div class="invoice-container">
+      <!-- Header section -->
+      <div class="top-container">
+        <div id="header">
+          <h1>Invoice creator</h1>
+          <p>Thanks for choosing GoodCorp, LLC!</p>
+        </div>
+      </div>
+
+        <!-- Buttons section -->
+      <div id="notification"></div>
+      <div id="btn-list">
+        <button id="wash-btn" class="button">Wash Car: $10</button>
+        <button id="mow-btn" class="button">Mow Lawn: $20</button>
+        <button id="pull-btn" class="button">Pull Weeds: $30</button>
+      </div>
+
+      <!-- Invoice section -->
+      <div class="invoice">
+        <table>
+          <thead>
+            <tr>
+              <th>TASK</th>
+              <th>TOTAL</th>
+            </tr>
+          </thead>
+          <tbody id="task-list">
+            <tr></tr>
+          </tbody>
+        </table>
+
+        <hr />
+
+        <table>
+          <thead>
+            <tr>
+              <th>NOTES</th>
+              <th>TOTAL AMOUNT</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>We accept cash, credit card, or PayPal</td>
+              <td id="total-el"></td> 
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <button id="send-btn">Send invoice</button>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
