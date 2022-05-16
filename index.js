@@ -12,21 +12,24 @@ const washBtn = document.getElementById("wash-btn")
 const mowBtn = document.getElementById("mow-btn")
 const pullBtn = document.getElementById("pull-btn")
 const taskList = document.getElementById("task-list")
-const delBtn = document.getElementById("del-btn")
+// const delBtn = document.getElementById("del-btn")
+const rmvWashBtn = document.getElementById("rmv-wash-btn")
+const rmvMowBtn = document.getElementById("rmv-mow-btn")
+const rmvPullBtn = document.getElementById("rmv-pull-btn")
 const totalEl = document.getElementById("total-el")
 const sendBtn = document.getElementById("send-btn")
-// Tracking tasks count
-let washBool = true
-let mowBool = true
-let pullBool = true
+// Tracking tasks rendered
+let washRender = false
+let mowRender = false
+let pullRender = false
 
 // Set event listener on buttons
 washBtn.addEventListener("click", function () {
-  if (washBool) {
+  if (!washRender) {
     tasksRequested.unshift(services[0])
     totalAmount += tasksRequested[0].price
     notification.innerHTML = `<p class="notification-green">${tasksRequested[0].name} has been added successfully</p>`
-    washBool = false
+    washRender = true
     renderServices()
   } else {
     notification.innerHTML = `<p class="notification-orange">You already have this on your list!</p>`
@@ -34,11 +37,11 @@ washBtn.addEventListener("click", function () {
 })
 
 mowBtn.addEventListener("click", function () {
-  if (mowBool) {
+  if (!mowRender) {
     tasksRequested.unshift(services[1])
     totalAmount += tasksRequested[0].price
     notification.innerHTML = `<p class="notification-green">${tasksRequested[0].name} has been added successfully</p>`
-    mowBool = false
+    mowRender = true
     renderServices(tasksRequested)
   } else {
     notification.innerHTML = `<p class="notification-orange">You already have this on your list!</p>`
@@ -46,22 +49,39 @@ mowBtn.addEventListener("click", function () {
 })
 
 pullBtn.addEventListener("click", function () {
-  if (pullBool) {
+  if (!pullRender) {
     tasksRequested.unshift(services[2])
     totalAmount += tasksRequested[0].price
     notification.innerHTML = `<p class="notification-green">${tasksRequested[0].name} has been added successfully</p>`
-    pullBool = false
+    pullRender = true
     renderServices(tasksRequested)
   } else {
     notification.innerHTML = `<p class="notification-orange">You already have this on your list!</p>`
   }
 })
 
-// Set up remove btn
-// if (washBool) {
-//   delBtn.addEventListener("click", function (i) {
-//     tasksRequested.splice(0, 1)
-//     totalAmount -= tasksRequested[0].price
+// // Set up remove btn
+// if (washRender) {
+//   // const delBtn = document.getElementById("del-btn")
+//   rmvWashBtn.addEventListener("click", function () {
+//     const indexOf = tasksRequested.indexOf(services[0])
+//     tasksRequested.splice(indexOf, 1)
+//     renderServices(tasksRequested)
+//   })
+// }
+
+// if (mowRender) {
+//   rmvMowBtn.addEventListener("click", function () {
+//     const indexOf = tasksRequested.indexOf(services[1])
+//     tasksRequested.splice(indexOf, 1)
+//     renderServices(tasksRequested)
+//   })
+// }
+
+// if (pullRender) {
+//   rmvPullBtn.addEventListener("click", function () {
+//     const indexOf = tasksRequested.indexOf(services[2])
+//     tasksRequested.splice(indexOf, 1)
 //     renderServices(tasksRequested)
 //   })
 // }
@@ -69,10 +89,10 @@ pullBtn.addEventListener("click", function () {
 sendBtn.addEventListener("click", function () {
   tasksRequested = []
   totalAmount = 0
-  notification.innerHTML = `<p class="notification-green">The invoice has been sended successfully</p>`
-  washBool = true
-  pullBool = true
-  mowBool = true
+  notification.innerHTML = `<p class="notification-blue">Invoice has been sended successfully</p>`
+  washRender = false
+  pullRender = false
+  mowRender = false
   renderServices(tasksRequested)
 })
 
@@ -92,3 +112,5 @@ function renderServices() {
   taskList.innerHTML = listService
   totalEl.innerHTML = "$" + totalAmount
 }
+
+console.log(washRender)

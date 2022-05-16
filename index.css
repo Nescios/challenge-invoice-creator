@@ -139,6 +139,10 @@ td {
   color: orange;
 }
 
+.notification-blue {
+  color: cyan;
+}
+
 #note-text {
   font-size: 12px;
   color: #f5f5f5;
