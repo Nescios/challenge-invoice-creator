@@ -19,7 +19,6 @@ It's a challenge from [scrimba](https://scrimba.com/).
 - HTML
 - CSS
 - JavaScript
-- Use local storage
 - [Render](https://render.com/docs) - 🚀 For deployment
 
 ## 📖 Resource

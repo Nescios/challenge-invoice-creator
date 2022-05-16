@@ -15,64 +15,80 @@ const taskList = document.getElementById("task-list")
 const delBtn = document.getElementById("del-btn")
 const totalEl = document.getElementById("total-el")
 const sendBtn = document.getElementById("send-btn")
-const servicesFromLocalStorage = localStorage.getItem("betaServices")
+// Tracking tasks count
+let washBool = true
+let mowBool = true
+let pullBool = true
 
-let betaServices = []
-
-if (servicesFromLocalStorage) {
-  betaServices = servicesFromLocalStorage
-  renderServices(betaServices)
-}
-
+// Set event listener on buttons
 washBtn.addEventListener("click", function () {
-  tasksRequested.push(services[0])
-  totalAmount += tasksRequested[0].price
-  // localStorage.setItem("betaServices", JSON.stringify(betaServices))
-  // task = JSON.stringify(betaServices[0].name)
-  renderServices()
+  if (washBool) {
+    tasksRequested.unshift(services[0])
+    totalAmount += tasksRequested[0].price
+    notification.innerHTML = `<p class="notification-green">${tasksRequested[0].name} has been added successfully</p>`
+    washBool = false
+    renderServices()
+  } else {
+    notification.innerHTML = `<p class="notification-orange">You already have this on your list!</p>`
+  }
 })
 
 mowBtn.addEventListener("click", function () {
-  tasksRequested.push(services[1])
-  totalAmount += tasksRequested[1].price
-  // localStorage.setItem("betaServices", JSON.stringify(betaServices))
-  // task = JSON.stringify(betaServices[1].name)
-  renderServices(tasksRequested)
+  if (mowBool) {
+    tasksRequested.unshift(services[1])
+    totalAmount += tasksRequested[0].price
+    notification.innerHTML = `<p class="notification-green">${tasksRequested[0].name} has been added successfully</p>`
+    mowBool = false
+    renderServices(tasksRequested)
+  } else {
+    notification.innerHTML = `<p class="notification-orange">You already have this on your list!</p>`
+  }
 })
 
 pullBtn.addEventListener("click", function () {
-  tasksRequested.push(services[2])
-  totalAmount += tasksRequested[2].price
-  // localStorage.setItem("betaServices", JSON.stringify(betaServices))
-  // task = JSON.stringify(betaServices[2].name)
-  renderServices(tasksRequested)
+  if (pullBool) {
+    tasksRequested.unshift(services[2])
+    totalAmount += tasksRequested[0].price
+    notification.innerHTML = `<p class="notification-green">${tasksRequested[0].name} has been added successfully</p>`
+    pullBool = false
+    renderServices(tasksRequested)
+  } else {
+    notification.innerHTML = `<p class="notification-orange">You already have this on your list!</p>`
+  }
 })
 
-delBtn.addEventListener("click", function () {
-  // localStorage.removeItem("betaServices")
-  tasksRequested.splice(1, 1)
-  totalAmount -= tasksRequested[0].price
-  renderServices(betaServices)
-})
+// Set up remove btn
+// if (washBool) {
+//   delBtn.addEventListener("click", function (i) {
+//     tasksRequested.splice(0, 1)
+//     totalAmount -= tasksRequested[0].price
+//     renderServices(tasksRequested)
+//   })
+// }
 
 sendBtn.addEventListener("click", function () {
-  // localStorage.clear()
   tasksRequested = []
+  totalAmount = 0
+  notification.innerHTML = `<p class="notification-green">The invoice has been sended successfully</p>`
+  washBool = true
+  pullBool = true
+  mowBool = true
   renderServices(tasksRequested)
 })
-
 
 function renderServices() {
   let listService = ""
   for (let i = 0; i < tasksRequested.length; ++i) {
     listService += `
       <tr>
-        <td>${tasksRequested[i].name}</td><button id"delBtn">Remove</button>
-        <td>${tasksRequested[i].price}</td>
+        <td class="table-left">
+          ${tasksRequested[i].name}
+          <button class="remove-btn" id"delBtn">Remove</button>
+        </td>
+        <td class="table-right"><span class="currency">$</span>${tasksRequested[i].price}</td>
       </tr>
     `
   }
   taskList.innerHTML = listService
-  totalEl.textContent = totalAmount
+  totalEl.innerHTML = "$" + totalAmount
 }
-

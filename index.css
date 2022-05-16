@@ -1,154 +1,150 @@
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   color: white;
   background-color: black;
-  font-family: Inter, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: Inter, "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   overflow: visible;
 }
 
-h1{
+h1 {
   font-style: normal;
   font-weight: 800;
   font-size: 40px;
-  line-height: 40px;  
+  line-height: 40px;
   margin: 0;
   padding: 0;
 }
 
-hr{
-  height:1px;
-  border-width:0;
-  color: #C3C6DB;
-  background-color:#D5D4D8;
+hr {
+  height: 1px;
+  border-width: 0;
+  color: #c3c6db;
+  background-color: #d5d4d8;
 }
 
-table{
+table {
   width: 100%;
 }
 
-th{
-  color: #D5D4D8;
+th {
+  color: #d5d4d8;
   font-size: 12px;
 }
 
-td{
+td {
   font-size: 20px;
 }
 
-.invoice-container{
+.invoice-container {
   max-width: 550px;
   max-height: 550px;
   margin: 64px auto;
-  background: #1F2937;
-  
+  background: #1f2937;
 }
 
-.table-section{
+.table-section {
   margin-top: 20px;
 }
 
-.top-container{
+.top-container {
   padding: 0;
   margin: 0;
-  background-color: #3A69D2;
+  background-color: #3a69d2;
   justify-content: center;
   text-align: center;
   padding: 35px 70px;
-  
 }
 
-.bottom-container{
+.bot-container {
   padding: 35px 35px 80px 35px;
   text-align: center;
 }
 
-
-#notification{
+#notification {
   font-size: 10px;
 }
 
-.top-container p{
+.top-container p {
   font-size: 12px;
 }
 .buttons-section {
-  display:flex;
-  flex-wrap: wrap;
+  display: flex;
+  flex-direction: row;
   justify-content: center;
   width: 100%;
 }
 
-.add-btn{
-  max-width: 142px;
+.add-btn {
   margin: 0 5px;
   height: 40px;
   border-radius: 7px;
   border: none;
-  background: #D1D4F4;
-  color: #4A4E74;
-  ;
+  background: #d1d4f4;
+  color: #4a4e74;
+  justify-content: space-between;
+  padding: 0px 20px;
 }
-.add-btn:hover{
-  border: groove 1px black;
+.add-btn:hover {
+  background-color: #f5f5f5;
 }
-.table-left{
+.table-left {
   text-align: left;
 }
 
-.table-right{
+.table-right {
   text-align: right;
 }
 
-.send-btn{
+.send-btn {
   width: 100%;
   border-radius: 7px;
   height: 40px;
-  background-color: #3A69D2;
+  background-color: #3a69d2;
   color: white;
   border: none;
   margin: 30px 0 30px 0;
 }
 
-.send-btn:hover{
+.send-btn:hover {
   border: groove 1px white;
 }
 
-.remove-btn{
+.remove-btn {
   font-size: 8px;
   border: none;
-  background-color:  transparent;
-  color: #D5D4D8;
-
+  background-color: transparent;
+  color: #d5d4d8;
 }
 
-.remove-btn:hover{
+.remove-btn:hover {
   font-size: 9px;
   color: #fff;
-
 }
 
-.currency{
-  color: #C3C6DB;
+.currency {
+  color: #c3c6db;
 }
 
-.notification-red{
+.notification-red {
   color: rgb(255, 0, 0);
 }
 
-.notification-green{
+.notification-green {
   color: rgb(0, 211, 0);
 }
 
-.notification-orange{
+.notification-orange {
   color: orange;
 }
 
-#note-text{
+#note-text {
   font-size: 12px;
   color: #f5f5f5;
 }
 
-#total-amount{
+#total-el {
   font-size: 30px;
   color: #f5f5f5;
 }
